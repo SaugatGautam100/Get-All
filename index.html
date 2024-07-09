@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get All</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        
+    </style>
+    <script>
+        function showSection(sectionId) {
+            var sections = document.getElementsByClassName('section');
+            var main = document.getElementsById('main');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
+            document.getElementById(sectionId).classList.add('active');
+            
+            
+        }
+        function showSection(sectionId){
+            const main = document.getElementById("main");
+            var sections = document.getElementsByClassName('section');
+            if (main.style.display === "block") {
+                main.style.display = "none";
+            } else {
+                main.style.display = "none";
+                for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            
+            document.getElementById(sectionId).classList.add('active');
+                }
+        }
+
+            }
+          
+           
+        
+        
+        
+    </script>
+</head>
+<body > 
+    <div class="navbar">
+        <a href="#"><img  src="c:\Users\gauta\Desktop\GetAll    (LOGO).png" ></a>
+        <input type="text" placeholder="Search in Get All">
+        <a onclick="showSection('seller')">Become a Seller</a>
+        <a onclick="showSection('payments')">Payments & Recharge</a>
+        <a onclick="showSection('help')">Help & Support</a>
+        <a onclick="showSection('logistics')">Logistics Partner</a>
+        <div class="login-signup">
+            <a onclick="showSection('login')" class="icon">Login</a>
+            <a onclick="showSection('signup')" class="icon">Sign Up</a>
+            <a onclick="showSection('language')" class="icon">EN</a>
+            <a onclick="showSection('cart')" class="icon">Cart</a>
+        </div>
+    </div>
+
+    <div id="seller" class="section">
+        <h2>Become a Seller</h2>
+        <p>Information about becoming a seller.</p>
+    </div>
+    <div id="payments" class="section">
+        <h2>Payments & Recharge</h2>
+        <p>Information about payments and recharge.</p>
+    </div>
+    <div id="help" class="section">
+        <h2>Help & Support</h2>
+        <p>Information about help and support.</p>
+    </div>
+    <div id="logistics" class="section">
+        <h2>Logistics Partner</h2>
+        <p>Information about logistics partner.</p>
+    </div>
+    <div id="login" class="section">
+        <h2>Login</h2>
+        <p>Login page content.</p>
+    </div>
+    <div id="signup" class="section">
+        <h2>Sign Up</h2>
+        <p>Sign up page content.</p>
+    </div>
+    <div id="language" class="section">
+        <h2>Language Selection</h2>
+        <p>Language selection content.</p>
+    </div>
+    <div id="cart" class="section">
+        <h2>Cart</h2>
+        <p>Cart page content.</p>
+    </div>
+    <div id="main" class="section">
+        
+         <!-- Navigation Bar -->
+          <div class="df">
+
+              <ul class="options">
+                  <li><a href="women.html" target="_blank">Women's Fashion</a></li>
+                  <li><a href="beauty.html" target="_blank">Health & Beauty</a></li>
+                  <li><a href="beauty.html" target="_blank">Men's Fashion</a></li>
+                  <li><a href="beauty.html" target="_blank">Watches & Acessories</a></li>
+                  <li><a href="beauty.html" target="_blank">Electronic Devices</a></li>
+                  <li><a href="beauty.html" target="_blank">TV & Home Appliances</a></li>
+                  <li><a href="beauty.html" target="_blank">Electronic Acessories</a></li>
+                  <li><a href="beauty.html" target="_blank">Groceries & Pets</a></li>
+                  <li><a href="beauty.html" target="_blank">babies & Toys</a></li>
+                  <li><a href="beauty.html" target="_blank">Home & Lifestyle</a></li>
+                  <li><a href="beauty.html" target="_blank">Sports & Outdoor</a></li>
+                  <li><a href="beauty.html" target="_blank">Motors, Tools & DIY</a></li>
+                  <!-- Add other categories here -->
+              </ul>
+          
+              <!-- Sale Sections -->
+              <div class="sale-sections">
+                  <a href="sale1.html" target="_blank" class="big">
+                      <img src="c:\Users\gauta\Desktop\Screenshot 2024-07-09 212612.png" alt="7.7 Flash Sale Supreme Beyond Belief">
+                  </a>
+                 
+                  <!-- Add more sale sections as needed -->
+              </div>
+              
+          </div>
+          <a href="" target="_blank" class="cig">
+            <img src="c:\Users\gauta\Desktop\Screenshot 2024-07-09 212716.png" alt="7.7 Flash Sale Various Products">
+        </a>
+    </div>
+</body>
+</html>
