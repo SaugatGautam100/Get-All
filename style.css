@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #080808;
+    padding: 10px 20px;
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    align-items: center;
+}
+
+.navbar-left a,
+.navbar-right a {
+    color: #d4af37; /* Adjust the color to match the logo's text color */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.navbar-left a:hover,
+.navbar-right a:hover {
+    text-decoration: underline;
+}
+
+.logo img {
+    height: 40px; /* Adjust the height as needed */
+    width: 40px; /* Set the width to match the height for a circular shape */
+    border-radius: 50%; /* Make the image circular */
+    vertical-align: middle;
+    object-fit: cover; /* Ensure the image covers the circle properly */
+}
+
+.navbar-center {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Allow center to take available space */
+    justify-content: center;
+    margin: 10px 0; /* Margin for better spacing on small screens */
+}
+
+.navbar-center input {
+    padding: 5px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    width: 100%; /* Full width on small screens */
+    max-width: 300px; /* Maximum width for larger screens */
+}
+
+.navbar-center button {
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.search-icon {
+    font-size: 1em;
+}
+
+.language,
+.cart,
+.save-more {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-left: 5px;
+    color: #d4af37; /* Adjust the color to match the logo's text color */
+}
+
+.save-more {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 5px 10px;
+}
+
+.save-more:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+
+    .navbar-left,
+    .navbar-right {
+        justify-content: center;
+        width: 100%; /* Full width on small screens */
+    }
+
+    .navbar-left a,
+    .navbar-right a {
+        margin: 5px 0; /* Margin for better spacing on small screens */
+    }
+
+    .navbar-center {
+        width: 100%; /* Full width on small screens */
+        margin: 10px 0;
+    }
+}

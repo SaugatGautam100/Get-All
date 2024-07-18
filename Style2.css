@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-login-frame {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:gold;
+    color: rgb(14, 1, 1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.header {
+    max-width: 60%;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.header p {
+    font-size: 1.2em;
+}
+
+.login {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 35%;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login label {
+    text-align: left;
+}
+
+.login input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login button {
+    background-color: #f57224;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login a {
+    color: #f57224;
+    text-decoration: none;
+}
+
+main {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.step {
+    flex: 1 1 150px;
+    text-align: center;
+}
+
+.step img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.faq {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.faq h3 {
+    text-align: center;
+}
+
+.faq-item {
+    margin: 20px 0;
+}
+
+.faq-item h4 {
+    margin: 0 0 10px 0;
+    cursor: pointer;
+}
+
+.faq-item p {
+    margin: 0;
+}
+
+footer {
+    background-color: #f57224;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0 0 10px 0;
+}
+
+footer button {
+    background-color: white;
+    color: #f57224;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
