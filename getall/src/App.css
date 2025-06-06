@@ -1476,9 +1476,10 @@ ul {
 }
 
 .offers {
-  width: 20%;
-  background: white;
-  padding: 10px;
+    width: 94%;
+    background: white;
+    padding: 10px;
+    margin-left: 40px;
 }
 
 .offers div {
@@ -1738,7 +1739,7 @@ ul {
 
         /* Product Card (individual products within category) */
         .product-card {
-            background-color: #fdfdfd;
+            background-color: var(--background);
             border-radius: 12px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
             overflow: hidden;
