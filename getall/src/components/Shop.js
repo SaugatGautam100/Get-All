@@ -8,54 +8,93 @@ export default function Shop() {
     return (
         <>
         <NavigationBar />
-         <main class="container main-content">
-    <aside class="sidebar">
-      <button class="category-btn">Category</button>
-      <div class="popular">
-        <h3>Popular</h3>
-        <ul>
-          <li>
-            <img src={smartwatch} alt="Watch"/>
-            <span>Smart Watch - £22.00</span>
-          </li>
-          <li>
-            <img src={headphone} alt="Headphones"/>
-            <span>Headphones - £35.00</span>
-          </li>
-          <li>
-            <img src={smartphone} alt="Smartphone"/>
-            <span>Smartphone - £79.00</span>
-          </li>
-          <li>
-            <img src={laptop} alt="Laptop"/>
-            <span>Laptop - £84.00</span>
-          </li>
-        </ul>
-      </div>
-    </aside>
+        <main id="shop-categories-main" class="container">
+        <h1 id="section-title">Explore Our Shop Categories</h1>
 
-    <section class="hero-section">
-      <img id="camera-banner-shop" src={camera} alt="Camera"/>
-      <br/>
-      <div class="hero-text">
-        <h2 className="ta-center">Professional Camera</h2>
-        <p className="ta-center">Shoot for the best</p>
-        <a href="#"><button className="btn-shop">Buy Now</button></a>
-      </div>
-    </section>
+        <div id="category-grid">
 
-    <aside class="offers">
-      <div>📦 Join Risk Free</div>
-      <div>🔒 100% Safe</div>
-      <div>💬 24x7 Support</div>
-      <div>🔥 Best Offers</div>
-      <div>🚚 Free Shipping</div>
-    </aside>
-  </main>
+           
+            <div class="category-card">
+                <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Electronics" alt="Electronics Category" class="category-image"/>
+                <div class="card-content">
+                    <h2 class="card-title">Electronics</h2>
+                    <p class="card-description">Discover the latest gadgets, smartphones, laptops, and more.</p>
+                    <a href="#" class="shop-now-button">Shop Now</a>
+                </div>
+            </div>
 
-  <section class="banner">
-    <p className="ta-center">Big offers on new collection <a href="#">Know More</a></p>
-  </section>
+            
+            <div class="category-card">
+                <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Apparel" alt="Apparel Category" class="category-image"/>
+                <div class="card-content">
+                    <h2 class="card-title">Apparel</h2>
+                    <p class="card-description">Find trendy fashion, clothing, shoes, and accessories for all.</p>
+                    <a href="#" class="shop-now-button">Shop Now</a>
+                </div>
+            </div>
+
+           
+            <div class="category-card">
+                <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Home+%26+Kitchen" alt="Home & Kitchen Category" class="category-image"/>
+                <div class="card-content">
+                    <h2 class="card-title">Home & Kitchen</h2>
+                    <p class="card-description">Everything you need to decorate and organize your home.</p>
+                    <a href="#" class="shop-now-button">Shop Now</a>
+                </div>
+            </div>
+
+           
+            <div class="category-card">
+                <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Books" alt="Books Category" class="category-image"/>
+                <div class="card-content">
+                    <h2 class="card-title">Books</h2>
+                    <p class="card-description">Explore a vast collection of books across all genres.</p>
+                    <a href="#" class="shop-now-button">Shop Now</a>
+                </div>
+            </div>
+
+         
+            <div class="category-card">
+                <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Sports+%26+Outdoors" alt="Sports & Outdoors Category" class="category-image"/>
+                <div class="card-content">
+                    <h2 class="card-title">Sports & Outdoors</h2>
+                    <p class="card-description">Gear up for your next adventure with our sports equipment.</p>
+                    <a href="#" class="shop-now-button">Shop Now</a>
+                </div>
+            </div>
+
+            
+            <div class="category-card">
+                <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Health+%26+Beauty" alt="Health & Beauty Category" class="category-image"/>
+                <div class="card-content">
+                    <h2 class="card-title">Health & Beauty</h2>
+                    <p class="card-description">Pamper yourself with our wide range of health and beauty products.</p>
+                    <a href="#" class="shop-now-button">Shop Now</a>
+                </div>
+            </div>
+
+          
+            <div class="category-card">
+                <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Toys+%26+Games" alt="Toys & Games Category" class="category-image"/>
+                <div class="card-content">
+                    <h2 class="card-title">Toys & Games</h2>
+                    <p class="card-description">Fun for all ages with our collection of toys and games.</p>
+                    <a href="#" class="shop-now-button">Shop Now</a>
+                </div>
+            </div>
+
+            
+            <div class="category-card">
+                <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Automotive" alt="Automotive Category" class="category-image"/>
+                <div class="card-content">
+                    <h2 class="card-title">Automotive</h2>
+                    <p class="card-description">Parts, accessories, and tools for your vehicle needs.</p>
+                    <a href="#" class="shop-now-button">Shop Now</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
         </>
     );
 }

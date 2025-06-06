@@ -1,195 +1,149 @@
-import NavigationBar from "./NavigationBar";
+import React, { useState, useEffect } from "react";
+import NavigationBar from "./NavigationBar"; // Assuming NavigationBar is a separate React component
 
 export default function Collection() {
-    return(
+    // State to keep track of the currently active category filter
+    const [activeCategory, setActiveCategory] = useState('all');
+
+    // useEffect hook to handle the filtering logic whenever activeCategory changes
+    useEffect(() => {
+        const collectionCards = document.querySelectorAll('.collection-card');
+
+        collectionCards.forEach(card => {
+            const cardCategory = card.dataset.category; // Get the category from the data-category attribute
+
+            // If "All Collections" is selected or the card's category matches the active category
+            if (activeCategory === 'all' || cardCategory === activeCategory) {
+                card.classList.remove('hidden'); // Show the card
+            } else {
+                card.classList.add('hidden'); // Hide the card
+            }
+        });
+
+        // Cleanup function (optional, but good practice for event listeners if they were added dynamically)
+        // In this case, we're not adding listeners here, but manipulating classes.
+        // If you were adding global event listeners inside useEffect, you'd return a cleanup function.
+    }, [activeCategory]); // Dependency array: re-run this effect whenever activeCategory changes
+
+    // Function to handle clicks on the filter buttons
+    const handleFilterClick = (category) => {
+        setActiveCategory(category); // Update the active category state
+
+        // Manually handle the 'active' class on buttons, as we're not using React state for button classes directly.
+        // This is a common pattern when mixing React with direct DOM manipulation (though often avoided).
+        document.querySelectorAll('.filter-button').forEach(btn => {
+            if (btn.dataset.category === category) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    };
+
+    return (
         <>
-        <NavigationBar />
-         <section class="hero-section">
-        <div class="hero-content">
-            <h1>Explore Our Diverse Collections</h1>
-            <p>Discover a wide range of electronics, gadgets, and home appliances, meticulously curated to meet your needs.</p>
-            <a href="#featured-collections" class="btn btn-primary">Browse All Collections</a>
-        </div>
-    </section>
+            {/* Assuming NavigationBar is another React component you're using */}
+            <NavigationBar />
 
-    <main class="main-content">
+            {/* Main content for the collections page */}
+            <main id="collections-main" className="container">
+                <h1 id="page-title">Discover Our Curated Collections</h1>
 
-        <section class="collection-category" id="mobiles-collection">
-            <h2 class="category-title">Mobiles</h2>
-            <p class="category-description">Stay connected with the latest smartphones from top brands. Find your perfect device.</p>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Smartphone+X" alt="Smartphone X" class="product-image"/>
-                    <h3 class="product-name">Smartphone X Pro</h3>
-                    <p class="product-description">High-performance, sleek design with an amazing camera.</p>
-                    <span class="product-price">NPR 75,000</span>
-                    <button class="btn btn-secondary">View Details</button>
+                {/* Category Filter Navigation */}
+                <div id="category-filter">
+                    {/* Buttons: onClick calls handleFilterClick with the respective category */}
+                    <button className={`filter-button ${activeCategory === 'all' ? 'active' : ''}`} data-category="all" onClick={() => handleFilterClick('all')}>All Collections</button>
+                    <button className={`filter-button ${activeCategory === 'seasonal' ? 'active' : ''}`} data-category="seasonal" onClick={() => handleFilterClick('seasonal')}>Seasonal</button>
+                    <button className={`filter-button ${activeCategory === 'technology' ? 'active' : ''}`} data-category="technology" onClick={() => handleFilterClick('technology')}>Technology</button>
+                    <button className={`filter-button ${activeCategory === 'lifestyle' ? 'active' : ''}`} data-category="lifestyle" onClick={() => handleFilterClick('lifestyle')}>Lifestyle</button>
+                    <button className={`filter-button ${activeCategory === 'home' ? 'active' : ''}`} data-category="home" onClick={() => handleFilterClick('home')}>Home & Living</button>
+                    <button className={`filter-button ${activeCategory === 'hobbies' ? 'active' : ''}`} data-category="hobbies" onClick={() => handleFilterClick('hobbies')}>Hobbies & Kids</button>
                 </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Smartphone+Y" alt="Smartphone Y" class="product-image"/>
-                    <h3 class="product-name">Smartphone Y Lite</h3>
-                    <p class="product-description">Budget-friendly, long battery life, perfect for everyday use.</p>
-                    <span class="product-price">NPR 35,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Smartphone+Z" alt="Smartphone Z" class="product-image"/>
-                    <h3 class="product-name">Smartphone Z Ultra</h3>
-                    <p class="product-description">Flagship model with cutting-edge technology and display.</p>
-                    <span class="product-price">NPR 120,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-            </div>
-        </section>
 
-        <section class="collection-category" id="laptops-collection">
-            <h2 class="category-title">Laptops</h2>
-            <p class="category-description">Powerful laptops for work, study, and entertainment. Choose from ultrabooks to gaming rigs.</p>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Laptop+A" alt="Laptop A" class="product-image"/>
-                    <h3 class="product-name">Ultrabook Pro 13</h3>
-                    <p class="product-description">Ultra-portable and powerful, ideal for professionals on the go.</p>
-                    <span class="product-price">NPR 90,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Laptop+B" alt="Laptop B" class="product-image"/>
-                    <h3 class="product-name">Gaming Beast 15</h3>
-                    <p class="product-description">Gaming beast with stunning graphics and high refresh rate display.</p>
-                    <span class="product-price">NPR 150,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Laptop+C" alt="Laptop C" class="product-image"/>
-                    <h3 class="product-name">Student Edition 14</h3>
-                    <p class="product-description">Reliable and affordable for students and everyday tasks.</p>
-                    <span class="product-price">NPR 60,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-            </div>
-        </section>
+                {/* Collections Grid - These cards will be dynamically hidden/shown by the useEffect hook */}
+                <div id="collections-grid">
+                    {/* Collection Card 1: Summer Essentials */}
+                    <div className="collection-card" data-category="seasonal">
+                        <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Summer+Essentials" alt="Summer Essentials Collection" className="collection-image"/>
+                        <div className="card-content">
+                            <h2 className="card-title">Summer Essentials</h2>
+                            <p className="card-description">Gear up for the sunny season with our must-have summer items.</p>
+                            <a href="#" className="view-collection-button">View Collection</a>
+                        </div>
+                    </div>
 
-        <section class="collection-category" id="home-appliances-collection">
-            <h2 class="category-title">Home Appliances</h2>
-            <p class="category-description">Modernize your home with our range of efficient and smart home appliances.</p>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Smart+TV" alt="Smart TV" class="product-image"/>
-                    <h3 class="product-name">Smart LED TV 55"</h3>
-                    <p class="product-description">Immersive viewing experience with 4K resolution and smart features.</p>
-                    <span class="product-price">NPR 85,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Refrigerator" alt="Refrigerator" class="product-image"/>
-                    <h3 class="product-name">Double Door Refrigerator</h3>
-                    <p class="product-description">Energy-efficient and spacious, perfect for modern kitchens.</p>
-                    <span class="product-price">NPR 70,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Washing+Machine" alt="Washing Machine" class="product-image"/>
-                    <h3 class="product-name">Automatic Washing Machine</h3>
-                    <p class="product-description">Advanced washing cycles for clean and fresh laundry every time.</p>
-                    <span class="product-price">NPR 45,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-            </div>
-        </section>
+                    {/* Collection Card 2: Tech Gadgets */}
+                    <div className="collection-card" data-category="technology">
+                        <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Tech+Gadgets" alt="Tech Gadgets Collection" className="collection-image"/>
+                        <div className="card-content">
+                            <h2 className="card-title">Tech Gadgets</h2>
+                            <p className="card-description">Explore the latest innovations in personal and home electronics.</p>
+                            <a href="#" className="view-collection-button">View Collection</a>
+                        </div>
+                    </div>
 
-        <section class="collection-category" id="wearables-collection">
-            <h2 class="category-title">Wearables</h2>
-            <p class="category-description">Track your fitness, stay connected, and express your style with our smart wearables.</p>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Fitness+Tracker" alt="Fitness Tracker" class="product-image"/>
-                    <h3 class="product-name">Advanced Fitness Tracker</h3>
-                    <p class="product-description">Monitor heart rate, steps, sleep, and more for a healthier life.</p>
-                    <span class="product-price">NPR 8,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Smart+Ring" alt="Smart Ring" class="product-image"/>
-                    <h3 class="product-name">Smart Notification Ring</h3>
-                    <p class="product-description">Subtle alerts for calls and messages, stylish and functional.</p>
-                    <span class="product-price">NPR 6,500</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=AR+Glasses" alt="AR Glasses" class="product-image"/>
-                    <h3 class="product-name">Augmented Reality Glasses</h3>
-                    <p class="product-description">Experience a new dimension of interaction and entertainment.</p>
-                    <span class="product-price">NPR 110,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-            </div>
-        </section>
+                    {/* Collection Card 3: Sustainable Living */}
+                    <div className="collection-card" data-category="lifestyle">
+                        <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Sustainable+Living" alt="Sustainable Living Collection" className="collection-image"/>
+                        <div className="card-content">
+                            <h2 className="card-title">Sustainable Living</h2>
+                            <p className="card-description">Products designed to help you live a greener, more eco-conscious life.</p>
+                            <a href="#" className="view-collection-button">View Collection</a>
+                        </div>
+                    </div>
 
-        <section class="collection-category" id="gaming-collection">
-            <h2 class="category-title">Gaming</h2>
-            <p class="category-description">Dive into immersive worlds with our high-performance gaming consoles, accessories, and gear.</p>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Gaming+Console" alt="Gaming Console" class="product-image"/>
-                    <h3 class="product-name">Next-Gen Gaming Console</h3>
-                    <p class="product-description">Unleash powerful graphics and lightning-fast loading times.</p>
-                    <span class="product-price">NPR 60,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Gaming+Headset" alt="Gaming Headset" class="product-image"/>
-                    <h3 class="product-name">Surround Sound Headset</h3>
-                    <p class="product-description">Crystal-clear audio and comfortable design for long gaming sessions.</p>
-                    <span class="product-price">NPR 9,500</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Gaming+Chair" alt="Gaming Chair" class="product-image"/>
-                    <h3 class="product-name">Ergonomic Gaming Chair</h3>
-                    <p class="product-description">Ultimate comfort and support for competitive and casual gamers.</p>
-                    <span class="product-price">NPR 25,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-            </div>
-        </section>
+                    {/* Collection Card 4: Home Decor Trends */}
+                    <div className="collection-card" data-category="home">
+                        <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Home+Decor+Trends" alt="Home Decor Trends Collection" className="collection-image"/>
+                        <div className="card-content">
+                            <h2 className="card-title">Home Decor Trends</h2>
+                            <p className="card-description">Spruce up your space with the newest and most stylish home decor.</p>
+                            <a href="#" className="view-collection-button">View Collection</a>
+                        </div>
+                    </div>
 
-        <section class="collection-category" id="accessories-collection">
-            <h2 class="category-title">Accessories</h2>
-            <p class="category-description">Enhance your devices with our range of accessories, including headphones, smartwatches, and more.</p>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Headphones" alt="Wireless Headphones" class="product-image"/>
-                    <h3 class="product-name">Wireless Headphones X</h3>
-                    <p class="product-description">Immersive sound experience with noise cancellation.</p>
-                    <span class="product-price">NPR 12,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Smartwatch" alt="Smartwatch Z" class="product-image"/>
-                    <h3 class="product-name">Smartwatch Z Pro</h3>
-                    <p class="product-description">Track your fitness, receive notifications, and stay organized.</p>
-                    <span class="product-price">NPR 18,000</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://placehold.co/300x200/E0E0E0/333333?text=Power+Bank" alt="Power Bank" class="product-image"/>
-                    <h3 class="product-name">High-Capacity Power Bank</h3>
-                    <p class="product-description">Keep your devices charged on the go with fast charging.</p>
-                    <span class="product-price">NPR 4,500</span>
-                    <button class="btn btn-secondary">View Details</button>
-                </div>
-            </div>
-        </section>
+                    {/* Collection Card 5: Fitness Gear */}
+                    <div className="collection-card" data-category="lifestyle">
+                        <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Fitness+Gear" alt="Fitness Gear Collection" className="collection-image"/>
+                        <div className="card-content">
+                            <h2 className="card-title">Fitness Gear</h2>
+                            <p className="card-description">Everything you need to boost your workouts and healthy lifestyle.</p>
+                            <a href="#" className="view-collection-button">View Collection</a>
+                        </div>
+                    </div>
 
-    </main>
+                    {/* Collection Card 6: Kids' Favorites */}
+                    <div className="collection-card" data-category="hobbies">
+                        <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Kids'+Favorites" alt="Kids' Favorites Collection" className="collection-image"/>
+                        <div className="card-content">
+                            <h2 className="card-title">Kids' Favorites</h2>
+                            <p className="card-description">Hand-picked toys, books, and accessories loved by kids of all ages.</p>
+                            <a href="#" className="view-collection-button">View Collection</a>
+                        </div>
+                    </div>
 
-    <section class="cta-section">
-        <h2>Ready to Find Your Next Gadget?</h2>
-        <p>Browse all our collections and take advantage of our nationwide delivery and excellent customer service!</p>
-        <a href="#" class="btn btn-primary">Shop All Products</a>
-    </section>
-    
+                    {/* New Collection Card 7: Winter Warmers */}
+                    <div className="collection-card" data-category="seasonal">
+                        <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Winter+Warmers" alt="Winter Warmers Collection" className="collection-image"/>
+                        <div className="card-content">
+                            <h2 className="card-title">Winter Warmers</h2>
+                            <p className="card-description">Cozy up with our selection of warm clothing and home goods.</p>
+                            <a href="#" className="view-collection-button">View Collection</a>
+                        </div>
+                    </div>
+
+                    {/* New Collection Card 8: Smart Home Devices */}
+                    <div className="collection-card" data-category="technology">
+                        <img src="https://placehold.co/400x250/F8F8F8/4A5568?text=Smart+Home" alt="Smart Home Devices Collection" className="collection-image"/>
+                        <div className="card-content">
+                            <h2 className="card-title">Smart Home Devices</h2>
+                            <p className="card-description">Automate and simplify your home with cutting-edge smart devices.</p>
+                            <a href="#" className="view-collection-button">View Collection</a>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
         </>
     );
 }

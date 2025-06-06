@@ -5,48 +5,43 @@ export default function AboutUs() {
     <>
       <NavigationBar />
 
-      <section className="about-content">
-        <h2>Welcome To GetAll</h2>
-        <p className="ta-center">Looking for the latest gadgets, electronics, and home appliances in Nepal?</p>
-      </section>
+    <main id="about-us-main" class="container">
+        <h1 id="about-page-title">About Get-All: Your Premier Destination for Everything You Need</h1>
 
-      <main className="about-section"> {/* Changed to main as it seems like the primary content */}
-        <h1>Greetings From GetAll</h1>
-        <p>The ultimate destination for electronics, home appliances, and gadgets. We take great pride in providing a wide selection of products, an effortless online shopping experience, excellent customer support, and a safe online shopping environment.</p>
-        <p>We're aware of it. It can be a little challenging to find the best online electronics store in Nepal. You must compare costs in this crowded shopping environment and expect to find the best offer. At Mobilemandu, we're dedicated to giving our clients the greatest possible purchasing experiences at the lowest prices.</p>
-        {/* The content below was part of the duplicated main, but now integrated here or moved to a dedicated section */}
-        <p>Since the experience is as vital as the product itself, we at GetAll place the utmost importance on quality and authenticity. In addition to superior products from trusted brands, we offer an easy and effortless shopping experience. We've partnered with leading brands to provide you authentic items, so you can buy with confidence.</p>
-      </main>
+        <div id="about-content">
+            <p>Welcome to <strong>Get-All</strong>, where the world of convenience, quality, and choice converges into one seamless online shopping experience. Born from a simple idea – to bring an incredibly diverse range of high-quality products directly to your fingertips – Get-All has grown into a vibrant marketplace dedicated to enriching your life.</p>
 
-      <section className="why-section">
-        <h2>Why GetAll?</h2>
-        <p>Since the experience is as vital as the product itself, we at GetAll place the utmost importance on quality and authenticity. In addition to superior products from trusted brands, we offer an easy and effortless shopping experience. We've partnered with leading brands to provide you authentic items, so you can buy with confidence.</p>
-      </section>
+            <p>In today's fast-paced world, we understand that finding everything you need, from daily essentials to unique treasures, can be a challenge. That's why we meticulously curate our collections, striving to be more than just a store. We aim to be your trusted partner, making every purchase a delightful and effortless journey. Our passion lies in connecting you with products that inspire, simplify, and enhance your everyday living.</p>
 
-      <section className="start-shopping-section">
-        <h2 className="ta-center">Start Your Shopping Today!</h2>
-        <p>Shop today and experience the difference. Shop from top brands you trust, all in one place.</p>
-      </section>
+            <h2>Our Vision: Empowering Your Choices</h2>
+            <p>Our vision transcends mere transactions. We aspire to be the globe's most trusted, intuitive, and customer-centric e-commerce platform. We envision a world where anyone can effortlessly discover and acquire products that truly resonate with their lifestyle and needs, fostering convenience and satisfaction in every click.</p>
 
-      <section className="delivery-section">
-        <h2>Nationwide Delivery</h2>
-        <p>Enjoy your shopping through Your Trusted Online Electronics Store in Nepal, without leaving the comfort of your home. We deliver your order directly to your location, no matter where you are in Nepal. Simply choose what you want to buy from our website, and we'll deliver it right to your door.</p>
-      </section>
+            <h2>Our Core Values: The Pillars of Get-All</h2>
+            <ul>
+                <li><strong>Customer First:</strong> Your satisfaction is our driving force. We listen, adapt, and innovate to exceed your expectations.</li>
+                <li><strong>Quality & Integrity:</strong> We are uncompromising in our commitment to offering only genuine, high-quality products from reputable sources. Honesty and transparency guide every decision.</li>
+                <li><strong>Innovation & Simplicity:</strong> We embrace technology to create a shopping experience that is not only efficient but also remarkably easy and enjoyable.</li>
+                <li><strong>Community & Connection:</strong> We believe in building a vibrant community around our brand, fostering connections with our customers and partners.</li>
+                <li><strong>Accessibility & Inclusivity:</strong> Get-All is designed to be accessible to everyone, ensuring a welcoming and straightforward experience for all shoppers.</li>
+            </ul>
 
-      <section className="customer-service-section">
-        <h2>Excellent Customer Service</h2>
-        <p>Our dedicated customer support team is always available to answer your questions and assist you with your orders.</p>
-      </section>
+            <h2>What Makes Get-All Your Best Choice?</h2>
+            <ul>
+                <li><strong>An Expansive Universe of Products:</strong> Dive into an ever-growing catalog spanning cutting-edge electronics, the latest fashion trends, essential home & living items, unique hobby supplies, and so much more. There's truly something for everyone!</li>
+                <li><strong>Curated for Excellence:</strong> Every item on Get-All is hand-picked and vetted for its quality, durability, and value, ensuring you receive only the best.</li>
+                <li><strong>Unbeatable Value:</strong> We work tirelessly to bring you highly competitive prices, coupled with exciting deals and promotions, ensuring your budget stretches further.</li>
+                <li><strong>Effortless Navigation:</strong> Our website is intuitively designed, making discovery and purchasing a joy. Find exactly what you need quickly and easily.</li>
+                <li><strong>Ironclad Security for Your Transactions:</strong> Shop with absolute peace of mind. Our state-of-the-art encryption and secure payment gateways safeguard your personal and financial information.</li>
+                <li><strong>Swift & Reliable Delivery:</strong> We partner with leading logistics providers to ensure your orders arrive promptly and in perfect condition, right at your doorstep.</li>
+                <li><strong>Always Here for You:</strong> Our dedicated and friendly customer support team is available around the clock to answer your questions, resolve issues, and ensure your experience is seamless.</li>
+            </ul>
 
-      <section className="returns-section">
-        <h2>Hassle-Free Returns</h2>
-        <p>Not satisfied with your purchase? We offer an easy return policy for your convenience, in the event that the product does not look or function as advertised.</p>
-      </section>
+            <h2>Our Unwavering Commitment</h2>
+            <p>At Get-All, we're not just selling products; we're building relationships. We are profoundly committed to earning and maintaining your trust through transparency, consistency, and a relentless pursuit of excellence in service. Your feedback is invaluable to us, as it continuously fuels our journey to improve and redefine online shopping.</p>
 
-      <section className="secure-shopping-section">
-        <h2>Convenient And Secure Shopping</h2>
-        <p>You can easily browse items, compare characteristics, and make secure online payments with our user-friendly website without worrying about any security issues.</p>
-      </section>
+            <p>Thank you for embarking on this shopping adventure with **Get-All**. We are thrilled to be a part of your everyday life and look forward to serving you with passion and dedication!</p>
+        </div>
+    </main>
     </>
   );
 }
