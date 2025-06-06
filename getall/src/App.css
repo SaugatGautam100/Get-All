@@ -1021,9 +1021,10 @@ p {
 }
 
 .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: -22px;
+    margin-right: 10px;
 }
 
 .product-card {
@@ -1033,6 +1034,7 @@ p {
   padding: 16px;
   text-align: center;
   transition: box-shadow 0.3s ease;
+  width: 215px;
 }
 
 .product-card:hover {
@@ -1476,9 +1478,10 @@ ul {
 }
 
 .offers {
-  width: 20%;
+  width: 94%;
   background: white;
   padding: 10px;
+  margin-left: 40px;
 }
 
 .offers div {
@@ -1496,13 +1499,16 @@ ul {
   color: #003366;
   font-weight: bold;
 }
-
+body{
+  overflow-x: hidden;
+}
 .footer {
   display: flex;
   justify-content: space-between;
-  background: #f0f0f0;
+  background: var(--primary);
   padding: 20px;
   margin-top: 20px;
+  color: white;
 }
 
 .footer h3 {
