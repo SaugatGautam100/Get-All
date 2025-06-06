@@ -1250,11 +1250,23 @@ img {
   right: -20px;
 }
 li > a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 ul {
   line-height: 25px;
+  list-style: none;
+}
+ul {
+    display: block;
+  line-height: 40px;
+    
+    
+   padding: 0;
+   margin: 0;
+}
+.footer h3{
+  font-size: 22px;
 }
 .btn {
   background-color: #16a34a;
@@ -1634,15 +1646,17 @@ body{
 
 /* Hero Section */
         .hero-section {
-            background: linear-gradient(to right, #007bff, #0056b3); /* Blue gradient */
-            color: #ffffff;
-            text-align: center;
-            padding: 6rem 1.5rem;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
+    /* background: linear-gradient(to right, #007bff, #0056b3); */
+    color: #ffffff;
+    text-align: center;
+    padding: 6rem 1.5rem;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--background);
+    width: 100%;
+}
 
         .hero-content h1 {
             font-size: 3.5rem;

@@ -136,15 +136,15 @@ export default function Home() {
         <div class="promo-text">
           <h1 className="ta-left">Mega Sales Extravaganza!</h1>
           <p >Unbelievable Deals and Discounts Await You At Our Mega Sales</p>
+          <a href="#" class="btn">
+            Start Shopping
+          </a>
         </div>
         <img src={smartphones} alt="iPhone" />
         <div class="promo-code">
           <p>
             Use Code: <strong>FridayDeal</strong>
           </p>
-          <a href="#" class="btn">
-            Start Shopping
-          </a>
         </div>
       </section>
       <section class="offers">
