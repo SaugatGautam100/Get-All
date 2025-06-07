@@ -2624,3 +2624,198 @@ body{
                 padding-right: 4rem; /* lg:px-16 */
             }
         }
+
+
+        /* BecomeSeller.css */
+
+/* Base styles for the entire page container */
+.seller-page-container {
+  min-height: 100vh;
+  background-color: #f3f4f6; /* bg-gray-100 */
+  padding: 1rem; /* p-4 */
+  font-family: Inter, sans-serif; /* font-sans */
+  box-sizing: border-box; /* Ensure padding doesn't add to element's total width/height */
+}
+
+/* Styles for the main content card */
+.seller-card {
+  max-width: 48rem; /* max-w-4xl */
+  margin-left: auto; /* mx-auto */
+  margin-right: auto; /* mx-auto */
+  background-color: #ffffff; /* bg-white */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  border-radius: 0.75rem; /* rounded-xl */
+  padding: 1.5rem; /* p-6 */
+}
+
+/* Responsive padding for the main content card */
+@media (min-width: 640px) { /* sm: */
+  .seller-card {
+    padding: 2rem; /* sm:p-8 */
+  }
+}
+
+@media (min-width: 1024px) { /* lg: */
+  .seller-card {
+    padding: 2.5rem; /* lg:p-10 */
+  }
+}
+
+/* Styles for the main page title */
+.page-title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 800; /* font-extrabold */
+  color: #1f2937; /* text-gray-800 */
+  margin-bottom: 2rem; /* mb-8 */
+  text-align: center; /* text-center */
+}
+
+/* Responsive font size for the main page title */
+@media (min-width: 640px) { /* sm: */
+  .page-title {
+    font-size: 2.25rem; /* sm:text-4xl */
+  }
+}
+
+/* Styles for section headers */
+.section-header {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  color: #374151; /* text-gray-700 */
+  margin-bottom: 1.5rem; /* mb-6 */
+  text-align: center; /* text-center */
+}
+
+/* Responsive font size for section headers */
+@media (min-width: 640px) { /* sm: */
+  .section-header {
+    font-size: 1.875rem; /* sm:text-3xl */
+  }
+}
+
+/* Styles for form sections */
+.form-section {
+  margin-bottom: 3rem; /* mb-12 */
+  padding-bottom: 2rem; /* pb-8 */
+  border-bottom: 1px solid #e5e7eb; /* border-b border-gray-200 */
+}
+
+/* Styles for form layouts (grid) */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* grid-cols-1 */
+  gap: 1.5rem; /* gap-6 */
+}
+
+/* Responsive form layouts (grid) */
+@media (min-width: 768px) { /* md: */
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+  }
+}
+
+
+/* Styles for form labels */
+.form-label {
+  display: block; /* block */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  color: #374151; /* text-gray-700 */
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+
+/* Styles for all input and select fields */
+.form-input,
+.form-select,
+.form-textarea {
+  margin-top: 0.25rem; /* mt-1 */
+  display: block; /* block */
+  width: 100%; /* w-full */
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  border: 1px solid #d1d5db; /* border border-gray-300 */
+  border-radius: 0.375rem; /* rounded-md */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  font-size: 0.875rem; /* sm:text-sm */
+}
+
+/* Focus styles for input, select, and textarea */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: 2px solid transparent; /* focus:outline-none */
+  outline-offset: 2px; /* focus:ring-offset-2 */
+  box-shadow: 0 0 0 2px #d1d5db, 0 0 0 4px #3b82f6; /* focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 */
+  border-color: #3b82f6; /* focus:border-blue-500 */
+}
+
+/* Specific style for textarea rows */
+.form-textarea {
+  min-height: 4rem; /* Equivalent of rows="4" */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Styles for form spacing */
+.form-space-y-6 > *:not(:first-child) {
+  margin-top: 1.5rem; /* space-y-6 */
+}
+
+/* Button container styles */
+.button-center-container {
+  display: flex; /* flex */
+  justify-content: center; /* justify-center */
+  padding-top: 1rem; /* pt-4 */
+}
+
+/* Common button styles */
+.btn {
+  display: inline-flex; /* inline-flex */
+  align-items: center; /* items-center */
+  padding: 0.75rem 1.5rem; /* px-6 py-3 */
+  border: 1px solid transparent; /* border border-transparent */
+  font-size: 1rem; /* text-base */
+  font-weight: 500; /* font-medium */
+  border-radius: 0.375rem; /* rounded-md */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  color: #ffffff; /* text-white */
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* transition duration-150 ease-in-out */
+}
+
+/* Focus styles for buttons */
+.btn:focus {
+  outline: 2px solid transparent; /* focus:outline-none */
+  outline-offset: 2px; /* focus:ring-offset-2 */
+}
+
+/* Specific styles for the primary (blue) button */
+.btn-primary {
+  background-color: #2563eb; /* bg-blue-600 */
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8; /* hover:bg-blue-700 */
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 2px #d1d5db, 0 0 0 4px #3b82f6; /* focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 */
+}
+
+/* Specific styles for the success (green) button */
+.btn-success {
+  background-color: #16a34a; /* bg-green-600 */
+}
+
+.btn-success:hover {
+  background-color: #15803d; /* hover:bg-green-700 */
+}
+
+.btn-success:focus {
+  box-shadow: 0 0 0 2px #d1d5db, 0 0 0 4px #22c55e; /* focus:ring-2 focus:ring-offset-2 focus:ring-green-500 */
+}
+
+/* Helper text for image upload */
+.help-text {
+  margin-top: 0.5rem; /* mt-2 */
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* text-gray-500 */
+}

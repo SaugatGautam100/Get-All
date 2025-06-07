@@ -10,6 +10,8 @@ import Collection from "./components/Collection";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Features from "./components/Features";
+import BecomeSeller from "./components/BecomeSeller";
+import Products from "./components/Products";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<CartSection />} />
           <Route path="/features" element={<Features />} />
+          <Route path="/becomeSeller" element={<BecomeSeller />} />
+          <Route path="/products" element={<Products />} />
         </Routes>
       </Router>
     </>
