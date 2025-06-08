@@ -66,9 +66,7 @@ export default function NavigationBar() {
               <Link to="/contact">Contact Us</Link>
             </li>
 
-            <li>
-              <Link to="/contact">Upload your Own Product</Link>
-            </li>
+           
 
             <li>
               <Link to="/becomeSeller">Become Seller</Link>

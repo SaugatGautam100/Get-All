@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react'; // Import useMemo
 import NavigationBar from './NavigationBar';
 
-// Mock product data
+
+// Mock product data (kept the same)
 const mockProducts = [
   { id: 1, name: 'Wireless Bluetooth Earbuds', description: 'High-quality sound with comfortable fit.', price: 49.99, category: 'Electronics', imageUrl: 'https://placehold.co/400x300/F0F8FF/000000?text=Earbuds' },
   { id: 2, name: 'Stylish Leather Handbag', description: 'Elegant and durable handbag for daily use.', price: 89.00, category: 'Fashion', imageUrl: 'https://placehold.co/400x300/F0F8FF/000000?text=Handbag' },
@@ -18,6 +19,17 @@ const mockProducts = [
 ];
 
 const ProductPage = () => {
+  const [cards, setCards] = useState([]);
+  const fetchData = async () => {
+  
+    let a = await fetch("https://jsonplaceholder.typicode.com/photos");
+    let data = await a.json();
+    setCards(data);
+    console.log(data);
+  }
+  useEffect(() => {
+    fetchData();
+  }, []);
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [minPrice, setMinPrice] = useState('');
@@ -30,27 +42,33 @@ const ProductPage = () => {
   }, []);
 
   // Get unique categories from the products
-  const categories = ['All', ...new Set(mockProducts.map(product => product.category))];
+  // This can also be memoized if mockProducts is very large or if it could change
+  const categories = useMemo(() => {
+    return ['All', ...new Set(mockProducts.map(product => product.category))];
+  }, []); // Dependency array is empty because mockProducts is static
 
-  // Filter and sort products based on selected criteria
-  const filteredAndSortedProducts = () => {
-    let currentProducts = [...products]; // Create a mutable copy
+  // Memoize the filtered and sorted products
+  const currentProducts = useMemo(() => {
+    let filtered = [...products]; // Start with the product data from state
 
     // 1. Filter by category
     if (selectedCategory !== 'All') {
-      currentProducts = currentProducts.filter(product => product.category === selectedCategory);
+      filtered = filtered.filter(product => product.category === selectedCategory);
     }
 
     // 2. Filter by price range
-    if (minPrice !== '') {
-      currentProducts = currentProducts.filter(product => product.price >= parseFloat(minPrice));
+    const min = parseFloat(minPrice);
+    const max = parseFloat(maxPrice);
+
+    if (!isNaN(min)) { // Check if minPrice is a valid number
+      filtered = filtered.filter(product => product.price >= min);
     }
-    if (maxPrice !== '') {
-      currentProducts = currentProducts.filter(product => product.price <= parseFloat(maxPrice));
+    if (!isNaN(max)) { // Check if maxPrice is a valid number
+      filtered = filtered.filter(product => product.price <= max);
     }
 
     // 3. Sort products
-    currentProducts.sort((a, b) => {
+    filtered.sort((a, b) => {
       if (sortBy === 'name-asc') {
         return a.name.localeCompare(b.name);
       } else if (sortBy === 'name-desc') {
@@ -63,15 +81,12 @@ const ProductPage = () => {
       return 0; // No sort or invalid sort option
     });
 
-    return currentProducts;
-  };
-
-  const currentProducts = filteredAndSortedProducts();
+    return filtered;
+  }, [products, selectedCategory, minPrice, maxPrice, sortBy]); // Dependencies for re-calculation
 
   return (
-    // Embed the CSS directly within the component's render method
     <>
-    <NavigationBar />
+      <NavigationBar />
       <style>
         {`
         /* ProductPage.css */
@@ -332,8 +347,7 @@ const ProductPage = () => {
         <div className="product-main-card">
           <h1 className="product-page-title">Our Products</h1>
 
-          <div className="content-wrapper"> {/* Wraps sidebar and product grid for horizontal layout */}
-            {/* Sidebar for filters */}
+          <div className="content-wrapper">
             <aside className="sidebar">
               <div className="filter-section">
                 <h3 className="filter-section-title">Categories</h3>
@@ -385,10 +399,31 @@ const ProductPage = () => {
               </div>
             </aside>
 
-            {/* Main Product Container (Product Grid) */}
             <main className="main-content">
               <div className="product-grid">
-                {currentProducts.map(product => (
+                {cards.map(card => (
+                  <div key={card.id} className="product-card">
+                    <div className="product-image-container">
+                      <img
+                        src={card.thumbnailUrl}
+                        alt={card.title}
+                        className="product-image"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = `https://img.freepik.com/premium-vector/shopping-bags-clip-art-vector-design_1221743-11145.jpg`;
+                        }}
+                      />
+                    </div>
+                    <div className="product-details">
+                      <h3 className="product-name">{card.title}</h3>
+                     
+                      <button className="add-to-cart-btn">
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                ))}
+                {/* {currentProducts.map(product => (
                   <div key={product.id} className="product-card">
                     <div className="product-image-container">
                       <img
@@ -396,7 +431,6 @@ const ProductPage = () => {
                         alt={product.name}
                         className="product-image"
                         onError={(e) => {
-                          // Fallback for broken images: replace with a placeholder
                           e.target.onerror = null;
                           e.target.src = `https://placehold.co/400x300/cccccc/000000?text=Image+Error`;
                         }}
@@ -411,13 +445,13 @@ const ProductPage = () => {
                       </button>
                     </div>
                   </div>
-                ))}
+                ))} */}
                 {currentProducts.length === 0 && (
                   <p className="text-center col-span-full text-gray-600">No products found matching your criteria.</p>
                 )}
               </div>
             </main>
-          </div> {/* End content-wrapper */}
+          </div>
         </div>
       </div>
     </>
