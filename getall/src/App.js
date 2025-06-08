@@ -16,7 +16,7 @@ import Products from "./components/Products";
 function App() {
   return (
     <>
-    
+    {/* React Router setup for navigation between different components/pages */}
        <Router>
         <Routes>
           <Route path="/" element={<Home />} />
